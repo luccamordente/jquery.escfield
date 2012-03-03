@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>untitled</title>
+  <meta name="generator" content="TextMate http://macromates.com/">
+  <meta name="author" content="Lucca Mordente">
+  <!-- Date: 2012-03-03 -->
+  <script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="jquery.escfield-0.0.1.js"></script>
+  <script type="text/javascript" charset="utf-8">
+   $(function(){
+     
+     // $('input#search').escField();
+     
+     $('input#search').escField({
+       notEmpty: function(field) {
+         console.log("not empty");
+         return false; // prevents emptying
+       },
+       empty: function(field) {
+         console.log("empty");
+         // return false; // prevents blurring
+       },
+       blurred: function(field) {
+         console.log("blurred");
+         // return false; // prevents focusing
+       }
+     });
+     
+   });
+  </script>
+</head>
+<body>
+  
+  <input type="text" id="search" />
+
+</body>
+</html>

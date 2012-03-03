@@ -1,0 +1,12 @@
+= jQuery.escField
+
+A jQuery plugin that allows a field to be focused, cleaned and unfocused by pressing the ESC key. 
+It's also possible to bind events to prevent or intercept these strategies.
+
+== Usage
+
+  $('input#search').escField()
+
+== Options
+
+Comming soon...
