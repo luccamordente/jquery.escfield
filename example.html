@@ -9,7 +9,7 @@
   <meta name="author" content="Lucca Mordente">
   <!-- Date: 2012-03-03 -->
   <script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" charset="utf-8" src="jquery.escfield-0.0.1.js"></script>
+  <script type="text/javascript" charset="utf-8" src="jquery.escfield-0.1.0.js"></script>
   <script type="text/javascript" charset="utf-8">
    $(function(){
      
@@ -18,7 +18,7 @@
      $('input#search').escField({
        notEmpty: function(field) {
          console.log("not empty");
-         return false; // prevents emptying
+         // return false; // prevents emptying
        },
        empty: function(field) {
          console.log("empty");

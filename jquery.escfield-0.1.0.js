@@ -30,24 +30,29 @@
         empty: emptyStrategy = function() {}, //empty
     
         blurred: blurredStrategry = function() {}, //blurred
-      
-        strategies: {
-        
-          notEmpty: notEmptyStrategy = function() {
-            $field.val("");
-          }, //notEmpty
-          
-          empty: emptyStrategy = function() {
-            $field.blur();
-          }, //empty
-      
-          blurred: blurredStrategry = function() {
-            $field.focus();
-          } //blurred
-        
-        } //strategies
-      
+            
       }, //defaultSettings
+      
+      
+      strategies = {
+      
+        notEmpty: notEmptyStrategy = function() {
+          $field.val("");
+          if($.browser.mozilla) {
+            $field.blur();
+            $field.focus();
+          }
+        }, //notEmpty
+        
+        empty: emptyStrategy = function() {
+          $field.blur();
+        }, //empty
+    
+        blurred: blurredStrategry = function() {
+          $field.focus();
+        } //blurred
+      
+      }, //strategies
       
       
       // instance of current field
@@ -80,7 +85,7 @@
        */
       executeStrategy = function(strategy, callback) {
         if(settings[strategy] && settings[strategy]($field) !== false)
-          settings.strategies[strategy]();
+          strategies[strategy]();
       }, //executeStrategy
       
       
@@ -103,6 +108,7 @@
        */
       keyup = function(event) {
         escPressed(event,function(){
+          console.log($field.val());
           if($field.val()) // not empty
             executeStrategy("notEmpty");
           else
