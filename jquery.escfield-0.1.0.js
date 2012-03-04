@@ -16,23 +16,34 @@
 
 
 (function( $ ) {
-  $.fn.escField = (function() {
+  $.fn.escField = function(options) {
     
-    var plugin = function(field, options) {
+    
+    var 
+
+    // plugin default settings
+    defaultSettings = {
+              
+      notEmpty: notEmptyStrategy = function() {}, //notEmpty
+      
+      empty: emptyStrategy = function() {}, //empty
+  
+      blurred: blurredStrategry = function() {}, //blurred
+          
+    }, //defaultSettings
+  
+    
+    // esc key code
+    ESC = 27,
+  
+  
+    // last event timestamp
+    lastTimeStamp = 0,
+    
+    
+    plugin = function(field, options) {      
       
       var 
-
-      // plugin default settings
-      defaultSettings = {
-                
-        notEmpty: notEmptyStrategy = function() {}, //notEmpty
-        
-        empty: emptyStrategy = function() {}, //empty
-    
-        blurred: blurredStrategry = function() {}, //blurred
-            
-      }, //defaultSettings
-      
       
       strategies = {
       
@@ -57,16 +68,8 @@
       
       // instance of current field
       $field = field,
-    
-    
-      // esc key code
-      ESC = 27,
-    
-    
-      // last event timestamp
-      lastTimeStamp = 0,
-    
-    
+      
+      
       // plugin settings after initialization
       settings = {},
       
@@ -139,13 +142,9 @@
     };
     
     
-    return function(options) {
-      
-      // not yet supports multiple visible fields 
-      new plugin(this, options);
-      
-      return this;
-    };
+    plugin(this, options);
     
-  }()); //escField
+    return this;
+    
+  }; //escField
 })( jQuery );
