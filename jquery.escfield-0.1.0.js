@@ -111,7 +111,6 @@
        */
       keyup = function(event) {
         escPressed(event,function(){
-          console.log($field.val());
           if($field.val()) // not empty
             executeStrategy("notEmpty");
           else
