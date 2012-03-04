@@ -28,7 +28,7 @@
       
       empty: emptyStrategy = function() {}, //empty
   
-      blurred: blurredStrategry = function() {}, //blurred
+      blurred: blurredStrategry = function() {} //blurred
           
     }, //defaultSettings
   
